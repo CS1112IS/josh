@@ -2,40 +2,53 @@ import java.math.*;
 
 public class BigPower {
 
-	static BigInteger countP = new BigInteger ("0");
-	BigInteger countP2 = new BigInteger ("0");
+	static int count;
+	static int count2;
 	
     public static void main (String[] argv)
     {
         BigInteger X = new BigInteger ("3");
         BigInteger Y = new BigInteger ("2");
+		count=0;
+		count2=0;
         BigInteger Z = power (X, Y);
-        System.out.println();
         BigInteger Z2 = power2 (X, Y);
         System.out.println (X + "^" + Y + " = " + Z + " Z2=" + Z2);
-
+		System.out.println("The count for the power function is: " + count);
+		System.out.println("The count for the power2 function is: " + count2);
         
         X = new BigInteger ("3");
         Y = new BigInteger ("1");
+		count=0;
+		count2=0;
         Z = power (X, Y);
         System.out.println();
         Z2 = power2 (X, Y);
-        System.out.println (X + "^" + Y + " = " + Z + " Z2=" + Z2);
-        
+        System.out.println (X + "^" + Y + " = " + Z + " Z2=" + Z2); 
+		System.out.println("The count for the power function is: " + count);
+		System.out.println("The count for the power2 function is: " + count2);
+
         X = new BigInteger ("2");
         Y = new BigInteger ("8");
+		count=0;
+		count2=0;
         Z = power (X, Y);
         System.out.println();
         Z2 = power2 (X, Y);
-        System.out.println (X + "^" + Y + " = " + Z + " Z2=" + Z2);
-
+        System.out.println (X + "^" + Y + " = " + Z + " Z2=" + Z2);	
+		System.out.println("The count for the power function is: " + count);
+		System.out.println("The count for the power2 function is: " + count2);
 
         X = new BigInteger ("2");
         Y = new BigInteger ("1000");
+		count=0;
+		count2=0;
         Z = power (X, Y);
         System.out.println();
         Z2 = power2 (X, Y);
         System.out.println (X + "^" + Y + " = " + Z + " Z2=" + Z2);
+		System.out.println("The count for the power function is: " + count);
+		System.out.println("The count for the power2 function is: " + count2);
 
     }
 
@@ -51,10 +64,10 @@ public class BigPower {
             return new BigInteger ("1");
         }
         BigInteger BMinus1 = B.subtract (one);
-        System.out.println(1);
+        count++;
         BigInteger temp = power (A, BMinus1);
         BigInteger P = A.multiply (temp);
-        System.out.println(1);
+        count++;
         return P;
         
     }
@@ -72,22 +85,22 @@ public class BigPower {
     	if(N.mod(two).equals(zero))
     	{
     		BigInteger newA = A.multiply(A);
-    		System.out.println(0);
+    		count2++;
     		BigInteger newN = N.divide(two);
-    		System.out.println(0);
+    		count2++;
     		BigInteger temp = power2(newA,newN);
     		return temp;
     	}
     	if(N.mod(two).equals(one))
     	{
     		BigInteger newA = A.multiply(A);
-    		System.out.println(0);
+    		count2++;
     		BigInteger newN = (N.subtract(one)).divide(two);
-    		System.out.println(0);
-    		System.out.println(0);
+    		count2++;
+    		count2++;
     		BigInteger temp = power2(newA,newN);
     		BigInteger P = A.multiply(temp);
-    		System.out.println(0);
+    		count2++;
     		return P;
     	}
     	return one;
