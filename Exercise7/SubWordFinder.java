@@ -109,9 +109,9 @@ public class SubWordFinder {
 
     static void breakDown (char[] word, int subWordSize, LinkedList<String> realWords)
     {
-    	if(subWordSize<word.length)
+    	if(subWordSize==word.length-1)
     	{
-    		for(int i=0;i<word.length+1;i++)
+    		for(int i=0;i<word.length;i++)
     		{
     		
     			char[] subWord = new char [subWordSize];
@@ -132,13 +132,39 @@ public class SubWordFinder {
     			printPermutations (subWordSize, subWordSize, numSubWord, subWord, 0, word, realWords);
 
     		}
-    	}else{
+    	}else if(subWordSize==word.length){
     		char[] numSubWord = new char [subWordSize];
     			for(int m = 0;m<subWordSize;m++){
     				numSubWord[m]='@';
     			}
     		printPermutations (subWordSize, subWordSize, numSubWord, word, 0, word, realWords);
-    	}
+    	}else{
+            for(int i=0;i<word.length;i++)
+            {
+            
+                char[] subWord = new char [word.length-1];
+                for(int j=0;j<word.length-1;j++)
+                {
+                    int position = j+i;
+                    if(position>=word.length){
+                        position = (Math.abs(word.length-position));
+                    }
+
+                    subWord[j]=word[position];
+                }
+                //call breakdown recursively
+                breakDown(subWord,subWordSize,realWords);
+
+                /*
+                //call printpermutations
+                char[] numSubWord = new char [word.length-1];
+                for(int m = 0;m<word.length-1;m++){
+                    numSubWord[m]='@';
+                }
+                printPermutations (subWordSize, subWordSize, numSubWord, subWord, 0, word, realWords);
+                */
+            }
+        }
     }
 
     static void printPermutations (int numSpaces, int numRemaining, char[] seats, char[] person, int personNum, char[] word, LinkedList<String> realWords)
@@ -150,7 +176,7 @@ public class SubWordFinder {
 	    // Print.
 
 	    String permutation = new String(seats);
-	    if(isDictionaryWord(permutation))
+	    if(isDictionaryWord(permutation) && !realWords.contains(permutation))
 	    {
 	    	realWords.add(permutation);
             //change test to permutation
@@ -181,6 +207,9 @@ public class SubWordFinder {
 	    }
 	} //end-for
     }
+
+
+   
 
 } // end-SubWordFinder class
 
