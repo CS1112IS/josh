@@ -1,0 +1,2 @@
+The file cannot compile because TribeInfo cannot be cast to java.lang.String
+	at BinaryTreeMapExample2.main(BinaryTreeMapExample2.java:52)

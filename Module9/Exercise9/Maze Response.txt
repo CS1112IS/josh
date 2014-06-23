@@ -1,0 +1,7 @@
+The maze doesn't work because it digs itself into a hole where none of the cells around it are empty becuase it already has traveled in these cells.
+
+ex:
+________
+       |
+  ____ |
+  |____|

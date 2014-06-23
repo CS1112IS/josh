@@ -1,0 +1,2 @@
+In order printing prints the tree out in alphabetical or numerical order.
+Fred is to the left of Gungan.

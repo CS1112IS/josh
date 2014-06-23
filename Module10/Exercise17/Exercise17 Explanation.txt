@@ -1,0 +1,1 @@
+the the pattern is as follows: take a number k, k%5 = the list the number is assigned to.

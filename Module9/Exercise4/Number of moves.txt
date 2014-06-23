@@ -1,0 +1,1 @@
+It will take 2^n - 1 moves, where n = the number of disks. This is exponential.

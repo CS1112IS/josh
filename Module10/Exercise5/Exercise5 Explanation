@@ -1,0 +1,1 @@
+The search for four will end when it searches to the right of 3, hits 5, and sees that there are no other nodes. Since there is no where else to look, the search will return empty.

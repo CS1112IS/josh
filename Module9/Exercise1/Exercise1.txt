@@ -1,0 +1,7 @@
+Step 1: Move disk 0 from stack 0 to stack 1 
+Step 2: Move disk 1 from stack 0 to stack 2
+Step 3: Move disk 0 from stack 1 to stack 2
+Step 4: Move disk 2 from stack 0 to stack 1
+Step 5: Move disk 0 from stack 2 to stack 0
+Step 6: Move disk 1 from stack 2 to stack 1
+Step 7: Move disk 0 from stack 0 to stack 1
